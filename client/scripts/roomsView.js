@@ -6,9 +6,11 @@ var RoomsView = {
   $button: $('#rooms button'),
   $select: $('#rooms select'),
 
+
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    RoomsView.$button.on('click', this.handleClick(event));
   },
 
   render: function() {
@@ -17,6 +19,9 @@ var RoomsView = {
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
+    this.roomname = roomname
+    var room = $(`<div class="room" name=${this.roomname}></div>`).text(this.roomname);
+    RoomsView.$select.append(room);
   },
 
   handleChange: function(event) {
@@ -25,6 +30,7 @@ var RoomsView = {
 
   handleClick: function(event) {
     // TODO: Handle the user clicking the "Add Room" button.
+    Rooms.add();
   }
 
 };

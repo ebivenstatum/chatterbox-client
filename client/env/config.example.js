@@ -8,3 +8,5 @@ $.ajaxPrefilter(function (settings, _, jqXHR) {
 
 // Put your campus prefix here
 window.CAMPUS = 'FILL_ME_IN';
+
+// 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 github tokem

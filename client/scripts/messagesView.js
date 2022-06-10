@@ -8,6 +8,10 @@ var MessagesView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+
+    this.username = ' ';
+    this.friends = [];
+    MessagesView.$chats.on('click', this.handleClick(event));
   },
 
   render: function() {
@@ -15,12 +19,17 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
-    // TODO: Render a single message.
+    Messages._data.push(message);
+
+    var text = $('<div class=\'text\'></div>').text(message.username + ': ' + message.text);
+    MessagesView.$chats.append(text);
+
+
   },
 
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
+    Friends.toggleStatus();
   }
-
 };

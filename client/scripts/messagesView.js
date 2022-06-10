@@ -11,7 +11,7 @@ var MessagesView = {
 
     this.username = ' ';
     this.friends = [];
-    MessagesView.$chats.on('click', this.handleClick(event));
+    MessagesView.$chats.on('click', function(event) {MessagesView.handleClick(event)});
   },
 
   render: function() {
@@ -21,7 +21,7 @@ var MessagesView = {
   renderMessage: function(message) {
     Messages._data.push(message);
 
-    var text = $('<div class=\'text\'></div>').text(message.username + ': ' + message.text);
+    var text = $(`<div class=\'text\'></div>`).text(message.username + ' ' + message.text + ' ' + message.roomname);
     MessagesView.$chats.append(text);
 
 

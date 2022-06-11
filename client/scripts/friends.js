@@ -5,8 +5,10 @@
 var Friends = {
   // TODO: Define how you want to store your list of friends.
 
+
   _data: {},
   friends: {},
+  $friend: $('#list'),
 
   toggleStatus: function(friend) {
     //MAYBE CAN'T ADD ANONYMOUS AS FRIEND???
@@ -19,7 +21,7 @@ var Friends = {
       Friends.friends[friend].isFriend = false;
     }
 
-    console.log(Friends.friends);
+   // console.log(Friends.friends);
 
   },
 
@@ -28,6 +30,7 @@ var Friends = {
 
   addFriend: function(friend) {
     Friends.friends[friend] = true;
+    Friends.renderFriends();
   },
 
   checkFriend: function(friend) {
@@ -35,6 +38,17 @@ var Friends = {
       return true;
     } else {
       return false;
+    }
+  },
+
+  renderFriends: function() {
+    //console.log(Friends.$friends)
+    Friends.$friend.empty();
+    for ( var key in Friends.friends) {
+      //console.log(keys);
+      var listedFriend = $('<li></li>').text(key);
+      listedFriend.appendTo(Friends.$friend);
+      //Friends.$friend.append(listedFriend);
     }
   }
 

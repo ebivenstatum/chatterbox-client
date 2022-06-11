@@ -6,14 +6,15 @@ var FormView = {
 
   $form: $('form'),
 
-  initialize: function() {
-    FormView.$form.on('submit', function(event) {FormView.handleSubmit(event.target.id.message)});
+  initialize: function () {
+    FormView.$form.on('submit', function (event) {
+      event.preventDefault();
+      FormView.handleSubmit(event.target.id.message)
+    });
   },
 
-  handleSubmit: function(message) {
+  handleSubmit: function (message) {
     // Stop the browser from submitting the form
-   event.preventDefault();
-
     // TODO: Currently, this is all handleSubmit does. Make this function actually send a message to the Parse API.
     var newMessage = {};
     newMessage['username'] = App.username;
@@ -26,7 +27,7 @@ var FormView = {
     FormView.$form.text.innerHTML = "";
   },
 
-  setStatus: function(active) {
+  setStatus: function (active) {
     var status = active ? 'true' : null;
     FormView.$form.find('input[type=submit]').attr('disabled', status);
   }

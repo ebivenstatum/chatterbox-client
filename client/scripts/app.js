@@ -8,7 +8,7 @@ var App = {
 
   username: 'Elizabeth&Albert',
 
-  initialize: function() {
+  initialize: function () {
     App.username = window.location.search.substr(10);
 
     FormView.initialize();
@@ -25,27 +25,27 @@ var App = {
     setInterval(App.fetch, 3000);
   },
 
-  fetch: function(callback = ()=>{}) {
+  fetch: function (callback = () => { }) {
     Parse.readAll((data) => {
       // examine the response from the server request:
       //console.log(data);
 
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
-      console.log(data);
+      MessagesView.$chats.empty();
       Messages.AllMessages = [];
-      _.each(data, function(d) {
-       MessagesView.renderMessage(d);
+      _.each(data, function (d) {
+        MessagesView.renderMessage(d);
       })
     });
   },
 
-  startSpinner: function() {
+  startSpinner: function () {
     App.$spinner.show();
     FormView.setStatus(true);
   },
 
-  stopSpinner: function() {
+  stopSpinner: function () {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
   }

@@ -1,11 +1,13 @@
 body {
-    background: black;
+    background-color: black;
     text-align: center;
     padding: 0 25px;
     font-family: arial, sans-serif;
+    width: 500px;
 }
 
-#main, #chats {
+#main,
+#chats {
     width: 500px;
     margin: 10px;
     text-align: left;
@@ -19,7 +21,6 @@ body {
 #rooms {
     color: white;
     padding: 2px;
-    text-align: center;
 }
 
 #main h1 {
@@ -31,7 +32,7 @@ body {
 }
 
 #main h1 span {
-    font-style:italic;
+    font-style: italic;
 }
 
 #main ul {
@@ -73,7 +74,6 @@ form input[type=text] {
     background-color: black;
     border: 5px solid darkred;
     border-radius: 5px;
-
 }
 
 .chat .username {
@@ -119,4 +119,21 @@ form input[type=text] {
 
 .room {
     color: white;
+    text-align: center;
+}
+
+.createdat {
+    color: gray;
+    font-size: 10px;
+}
+
+#friends {
+    border: 5px solid darkred;
+    border-radius: 5px;
+    color: white;
+    background-color: darkred;
+    text-align: left;
+    margin-left: 10px;
+    padding: 10px;
+    width: 500px;
 }

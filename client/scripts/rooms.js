@@ -8,25 +8,24 @@ var Rooms = {
   _data: null,
   currentRoom: '',
   roomsList: [],
-  add: function(roomname) {
+  add: function (roomname) {
     if (!(_.contains(Rooms.roomsList, roomname))) {
-      var $room = $('<option></option>').val(roomname).text(roomname);
-      RoomsView.$select.append($room);
+      var $room = $(`<option id=${roomname}></option>`).val(roomname).text(roomname);
+      $room.appendTo(RoomsView.$select);
       Rooms.roomsList.push(roomname);
       Rooms.setRoom(roomname);
-      //RoomsView.$select.append(`<option id=${roomname}>${roomname}</option>`);
-     // RoomsView.renderRoom(roomname); //Room(roomname);
     }
 
   },
-  setRoom: function(roomname){
+  setRoom: function (roomname) {
     Rooms.currentRoom = roomname;
+    //$('#chats div').empty();
     RoomsView.renderRoom(roomname);
   },
-  getRoom: function(){
+  getRoom: function () {
     return Rooms.currentRoom;
   },
-  getAllRooms: function() {
+  getAllRooms: function () {
     return Rooms.roomsList;
   }
 

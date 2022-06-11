@@ -5,24 +5,29 @@
 var Messages = {
 
   // TODO: Define how you want to store your messages.
-  _data: [],
-  _usernames: {}
-
+  _data: {},
+  allMessages: [],
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
- /* retrieveMessages(username) {
-    return _data[username];
+  getMessagesByRoom: function(roomname) {
+
+    var roomMessages = _.filter(allMessages, function(message) {
+      return message.roomname === roomname;
+    });
+    _.each(roomMessages, function(message) {
+      MessagesView.renderMessage(message);
+    })
   },
 
-  var addToMessages = function(username, message) {
+  getAllMessages: function() {
+    return Messages.AllMessages;
+  },
 
-    if (_data[username]) {
-      _data[username].push(message);
-    } else {
-      _data[username] = [message];
-    }
+  deleteMessage: function(message) {
+    message = {};
+    return message;
+  },
 
-  }*/
 
 
 

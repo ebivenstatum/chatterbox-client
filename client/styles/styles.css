@@ -1,5 +1,5 @@
 body {
-    background: #eee;
+    background: black;
     text-align: center;
     padding: 0 25px;
     font-family: arial, sans-serif;
@@ -7,19 +7,27 @@ body {
 
 #main, #chats {
     width: 500px;
-    margin: auto;
+    margin: 10px;
     text-align: left;
-    background: white;
+    background: darkred;
     padding: 50px 60px;
-    border: solid #ddd;
     border-width: 0 1px 1px 1px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#rooms {
+    color: white;
+    padding: 2px;
+    text-align: center;
 }
 
 #main h1 {
     margin-top: 0;
     font-size: 35px;
     margin-bottom: 5px;
-    padding: 5px;
+    padding-bottom: 5px;
+    color: white;
 }
 
 #main h1 span {
@@ -59,10 +67,13 @@ form input[type=text] {
     padding: 5px;
 }
 
-.chat {
+#chats {
     padding: 5px;
     margin-bottom: 5px;
-    background-color: #eee;
+    background-color: black;
+    border: 5px solid darkred;
+    border-radius: 5px;
+
 }
 
 .chat .username {
@@ -88,3 +99,24 @@ form input[type=text] {
     background-color: #0090da;
 }
 
+.username {
+    border: 1px solid gray;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: darkred;
+}
+
+.username .text {
+    font-weight: 100;
+    padding-left: 5px;
+}
+
+.text {
+    color: black;
+}
+
+.room {
+    color: white;
+}

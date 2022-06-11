@@ -8,36 +8,38 @@ var RoomsView = {
 
 
   initialize: function() {
-    // TODO: Perform any work which needs to be done
-    // when this view loads.
-    RoomsView.$select.on('click', function(event) {RoomsView.handleChange()});
+    // TODO: Perform any work which needs to be done when this view loads.
+    RoomsView.$select.on('click', function(event) {RoomsView.handleChange(event.target.id)});
     RoomsView.$button.on('click', function(event) {RoomsView.handleClick()});
   },
 
   render: function() {
     // TODO: Render out the list of rooms.
-    var $room = Rooms.getRoom();
-    _each($room, RoomsView.renderRoom(room));
+    var $room = Rooms.getAllRooms();
+    $room.forEach(roomname => RoomsView.renderRoom(roomname));
   },
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
-    var $room = $(`<div class="room"></div>`).text(roomname); //.text(this.roomname);
-    RoomsView.$select.append($room);
-    //Rooms.showMessages(roomname);
-    console.log(RoomsView);
+    var $newRoom = $(`<div class="room" id=${roomname}></div>`).text(roomname);
+
+    //var $roomMessage = $('<h2></h2>').text(roomname);
+    //$roomMessage.appendTo($newRoom);
+     MessagesView.$chats.prepend($newRoom);
+    // RoomsView.$select.append($newRoom);
   },
 
-  handleChange: function() {
+  handleChange: function(roomname) {
     // TODO: Handle a user selecting a different room.
-   RoomsView.renderRoom(this.roomname);
+    Rooms.setRoom(roomname);
+    RoomsView.renderRoom(roomname);
   },
 
   handleClick: function(/*event*/) {
     // TODO: Handle the user clicking the "Add Room" button.
-    //this.roomname =
     var roomname = prompt('Enter Room Name');
     Rooms.add(roomname);
+    RoomsView.$select.val(roomname);
   }
 
 };
